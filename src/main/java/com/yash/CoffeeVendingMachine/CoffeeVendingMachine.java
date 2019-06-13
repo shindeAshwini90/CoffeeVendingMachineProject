@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import com.yash.CoffeeVendingMachine.util.IntegerScanner;
 import com.yash.models.Container;
-import com.yash.models.Drinks;
+import com.yash.models.DrinksType;
 
 public class CoffeeVendingMachine {
 	Logger logger = Logger.getLogger(CoffeeVendingMachine.class.getName());
@@ -36,28 +36,28 @@ public class CoffeeVendingMachine {
 				logger.info("Please enter how many cup of Tea do you want?");
 				quantity = scanner.nextInt();
 				logger.info("Preparing " + quantity + " cup of tea");
-				machine.prepareDrink(containers, Drinks.DrinksType.TEA.name(), quantity);
+				machine.prepareDrink(containers, DrinksType.TEA.name(), quantity);
 				logger.info("Your Tea is prepared");
 				break;
 			case 2:
 				logger.info("Please enter how many cup of Black Tea do you want?");
 				quantity = scanner.nextInt();
 				logger.info("Preparing " + quantity + " cup of  Black Tea");
-				machine.prepareDrink(containers, Drinks.DrinksType.BLACK_TEA.name(), quantity);
+				machine.prepareDrink(containers, DrinksType.BLACK_TEA.name(), quantity);
 				logger.info("Your Black tea is prepared");
 				break;
 			case 3:
 				logger.info("Please enter how many cup of Coffee do you want?");
 				quantity = scanner.nextInt();
 				logger.info("Preparing " + quantity + " cup of Coffee");
-				machine.prepareDrink(containers, Drinks.DrinksType.COFFEE.name(), quantity);
+				machine.prepareDrink(containers, DrinksType.COFFEE.name(), quantity);
 				logger.info("Your Coffee is prepared");
 				break;
 			case 4:
 				logger.info("Please enter how many cup of Black Coffee do you want?");
 				quantity = scanner.nextInt();
 				logger.info("Preparing " + quantity + " cup of Black Coffee");
-				machine.prepareDrink(containers, Drinks.DrinksType.BLACK_COFFEE.name(), quantity);
+				machine.prepareDrink(containers, DrinksType.BLACK_COFFEE.name(), quantity);
 				logger.info("Your drink is prepared");
 				break;
 			case 5:

@@ -15,7 +15,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.yash.CoffeeVendingMachine.util.IntegerScanner;
 import com.yash.models.Container;
-import com.yash.models.Drinks;
+import com.yash.models.DrinksType;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CoffeeVendingMachineTest {
@@ -40,11 +40,11 @@ public class CoffeeVendingMachineTest {
 
 		when(scanner.nextInt()).thenReturn(1, 2);
 
-		doNothing().when(machine).prepareDrink(containers, Drinks.DrinksType.TEA.name(), 2);
+		doNothing().when(machine).prepareDrink(containers, DrinksType.TEA.name(), 2);
 
 		coffeeVendingMachine.displayCoffeeMachineOptions(false);
 
-		verify(machine).prepareDrink(containers, Drinks.DrinksType.TEA.name(), 2);
+		verify(machine).prepareDrink(containers, DrinksType.TEA.name(), 2);
 		
 		doNothing().when(logger).info("Your drink is prepared");
 	}
@@ -54,11 +54,11 @@ public class CoffeeVendingMachineTest {
 		
 		when(scanner.nextInt()).thenReturn(2, 2);
 		
-		doNothing().when(machine).prepareDrink(containers, Drinks.DrinksType.BLACK_TEA.name(), 2);
+		doNothing().when(machine).prepareDrink(containers, DrinksType.BLACK_TEA.name(), 2);
 		
 		coffeeVendingMachine.displayCoffeeMachineOptions(false);
 		
-		verify(machine).prepareDrink(containers, Drinks.DrinksType.BLACK_TEA.name(), 2);
+		verify(machine).prepareDrink(containers, DrinksType.BLACK_TEA.name(), 2);
 
 	}
 
@@ -67,11 +67,11 @@ public class CoffeeVendingMachineTest {
 
 		when(scanner.nextInt()).thenReturn(3, 2);
 
-		doNothing().when(machine).prepareDrink(containers, Drinks.DrinksType.COFFEE.name(), 2);
+		doNothing().when(machine).prepareDrink(containers, DrinksType.COFFEE.name(), 2);
 
 		coffeeVendingMachine.displayCoffeeMachineOptions(false);
 
-		verify(machine).prepareDrink(containers, Drinks.DrinksType.COFFEE.name(), 2);
+		verify(machine).prepareDrink(containers, DrinksType.COFFEE.name(), 2);
 
 	}
 
@@ -80,11 +80,11 @@ public class CoffeeVendingMachineTest {
 
 		when(scanner.nextInt()).thenReturn(4, 2);
 
-		doNothing().when(machine).prepareDrink(containers, Drinks.DrinksType.BLACK_COFFEE.name(), 2);
+		doNothing().when(machine).prepareDrink(containers, DrinksType.BLACK_COFFEE.name(), 2);
 
 		coffeeVendingMachine.displayCoffeeMachineOptions(false);
 
-		verify(machine).prepareDrink(containers, Drinks.DrinksType.BLACK_COFFEE.name(), 2);
+		verify(machine).prepareDrink(containers, DrinksType.BLACK_COFFEE.name(), 2);
 
 	}
 	

@@ -9,7 +9,7 @@ import com.yash.models.BlackCoffee;
 import com.yash.models.BlackTea;
 import com.yash.models.Coffee;
 import com.yash.models.Container;
-import com.yash.models.Drinks;
+import com.yash.models.DrinksType;
 import com.yash.models.Tea;
 
 public class VendingMachineOperationImpl implements VendingMachineOperations {
@@ -88,25 +88,25 @@ public class VendingMachineOperationImpl implements VendingMachineOperations {
 
 	public void calculateTotalWasteAndConsumptionOfMaterial(String drinkType, Integer quantity) {
 
-		if (drinkType.equalsIgnoreCase(Drinks.DrinksType.TEA.name())) {
+		if (drinkType.equalsIgnoreCase(DrinksType.TEA.name())) {
 			teaConsumptionAndWasteTtl = (Tea.TEA.getConsumptionAndWasteTotal()) * quantity;
 			milkConsumptionAndWasteTtl = (Tea.MILK.getConsumptionAndWasteTotal()) * quantity;
 			waterConsumptionAndWasteTtl = (Tea.WATER.getConsumptionAndWasteTotal()) * quantity;
 			sugarConsumptionAndWasteTtl = (Tea.SUGAR.getConsumptionAndWasteTotal()) * quantity;
 			coffeeConsumptionAndWasteTtl = 0.0;
-		} else if (drinkType.equalsIgnoreCase(Drinks.DrinksType.BLACK_TEA.name())) {
+		} else if (drinkType.equalsIgnoreCase(DrinksType.BLACK_TEA.name())) {
 			teaConsumptionAndWasteTtl = (BlackTea.BLACK_TEA.getConsumptionAndWasteTotal()) * quantity;
 			waterConsumptionAndWasteTtl = (BlackTea.WATER.getConsumptionAndWasteTotal()) * quantity;
 			sugarConsumptionAndWasteTtl = (BlackTea.SUGAR.getConsumptionAndWasteTotal()) * quantity;
 			coffeeConsumptionAndWasteTtl = 0.0;
 			milkConsumptionAndWasteTtl = 0.0;
-		} else if (drinkType.equalsIgnoreCase(Drinks.DrinksType.COFFEE.name())) {
+		} else if (drinkType.equalsIgnoreCase(DrinksType.COFFEE.name())) {
 			coffeeConsumptionAndWasteTtl = (Coffee.COFFEE.getConsumptionAndWasteTotal()) * quantity;
 			milkConsumptionAndWasteTtl = (Coffee.MILK.getConsumptionAndWasteTotal()) * quantity;
 			waterConsumptionAndWasteTtl = (Coffee.WATER.getConsumptionAndWasteTotal()) * quantity;
 			sugarConsumptionAndWasteTtl = (Coffee.SUGAR.getConsumptionAndWasteTotal()) * quantity;
 			teaConsumptionAndWasteTtl = 0.0;
-		} else if (drinkType.equalsIgnoreCase(Drinks.DrinksType.BLACK_COFFEE.name())) {
+		} else if (drinkType.equalsIgnoreCase(DrinksType.BLACK_COFFEE.name())) {
 			coffeeConsumptionAndWasteTtl = (BlackCoffee.BLACK_COFFEE.getConsumptionAndWasteTotal()) * quantity;
 			waterConsumptionAndWasteTtl = (BlackCoffee.WATER.getConsumptionAndWasteTotal()) * quantity;
 			sugarConsumptionAndWasteTtl = (BlackCoffee.SUGAR.getConsumptionAndWasteTotal()) * quantity;
@@ -128,9 +128,9 @@ public class VendingMachineOperationImpl implements VendingMachineOperations {
 
 		if (report.containsKey("TEA")) {
 
-			drinkWisePrice.put("TEA", report.get("TEA") * Drinks.DrinksType.TEA.getPrice());
+			drinkWisePrice.put("TEA", report.get("TEA") * DrinksType.TEA.getPrice());
 			String str = "Total tea sale is " + report.get("TEA") + " Total cost of tea is ";
-			totalTeaCoffeeSaleReportmap.put(str, report.get("TEA") * Drinks.DrinksType.TEA.getPrice());
+			totalTeaCoffeeSaleReportmap.put(str, report.get("TEA") * DrinksType.TEA.getPrice());
 
 			teaWastage += report.get("TEA") * 1;
 			milkWastage += report.get("TEA") * 4;
@@ -139,9 +139,9 @@ public class VendingMachineOperationImpl implements VendingMachineOperations {
 		}
 		if (report.containsKey("COFFEE")) {
 
-			drinkWisePrice.put("COFFEE", report.get("COFFEE") * Drinks.DrinksType.COFFEE.getPrice());
+			drinkWisePrice.put("COFFEE", report.get("COFFEE") * DrinksType.COFFEE.getPrice());
 			String str = "Total Coffee sale is " + report.get("COFFEE") + " Total cost of Coffee is ";
-			totalTeaCoffeeSaleReportmap.put(str, report.get("COFFEE") * Drinks.DrinksType.COFFEE.getPrice());
+			totalTeaCoffeeSaleReportmap.put(str, report.get("COFFEE") * DrinksType.COFFEE.getPrice());
 
 			coffeeWastage += report.get("COFFEE") * 1;
 			milkWastage += report.get("COFFEE") * 8;
@@ -150,19 +150,19 @@ public class VendingMachineOperationImpl implements VendingMachineOperations {
 		}
 		if (report.containsKey("BLACK_TEA")) {
 
-			drinkWisePrice.put("BLACK_TEA", report.get("BLACK_TEA") * Drinks.DrinksType.BLACK_TEA.getPrice());
+			drinkWisePrice.put("BLACK_TEA", report.get("BLACK_TEA") * DrinksType.BLACK_TEA.getPrice());
 			String str = "Total Balck Tea sale is " + report.get("BLACK_TEA") + " Total cost of Black Tea is ";
-			totalTeaCoffeeSaleReportmap.put(str, report.get("BLACK_TEA") * Drinks.DrinksType.BLACK_TEA.getPrice());
+			totalTeaCoffeeSaleReportmap.put(str, report.get("BLACK_TEA") * DrinksType.BLACK_TEA.getPrice());
 
 			sugarWastage += report.get("BLACK_TEA") * 2;
 			waterWastage += report.get("BLACK_TEA") * 12;
 		}
 		if (report.containsKey("BLACK_COFFEE")) {
 
-			drinkWisePrice.put("BLACK_COFFEE", report.get("BLACK_COFFEE") * Drinks.DrinksType.BLACK_COFFEE.getPrice());
+			drinkWisePrice.put("BLACK_COFFEE", report.get("BLACK_COFFEE") * DrinksType.BLACK_COFFEE.getPrice());
 			String str = "Total Black Coffee sale is " + report.get("BLACK_COFFEE") + " Total cost of Black Coffee is ";
 			totalTeaCoffeeSaleReportmap.put(str,
-					report.get("BLACK_COFFEE") * Drinks.DrinksType.BLACK_COFFEE.getPrice());
+					report.get("BLACK_COFFEE") * DrinksType.BLACK_COFFEE.getPrice());
 
 			sugarWastage += report.get("BLACK_COFFEE") * 2;
 			waterWastage += report.get("BLACK_COFFEE") * 12;
@@ -248,4 +248,5 @@ public class VendingMachineOperationImpl implements VendingMachineOperations {
 		}
 		return isRefilled ? refillCounter : 0;
 	}
+	
 }

@@ -18,7 +18,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.yash.CoffeeVendingMachine.util.IntegerScanner;
 import com.yash.models.Container;
-import com.yash.models.Drinks;
+import com.yash.models.DrinksType;
 
 @RunWith(MockitoJUnitRunner.class)
 public class VendingMachineOperationImplTest {
@@ -45,7 +45,7 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15000.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.TEA.name(), 2);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.TEA.name(), 2);
 
 		verify(container).getTeaContainer();
 		verify(container).getWaterContainer();
@@ -65,7 +65,7 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15000.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.BLACK_TEA.name(), 2);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.BLACK_TEA.name(), 2);
 
 		verify(container).getTeaContainer();
 		verify(container).getWaterContainer();
@@ -83,7 +83,7 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15000.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.COFFEE.name(), 2);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.COFFEE.name(), 2);
 
 		verify(container).getCoffeeContainer();
 		verify(container).getMilkContainer();
@@ -100,8 +100,8 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15000.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.BLACK_COFFEE.name(), 2);
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.BLACK_COFFEE.name(), 2);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.BLACK_COFFEE.name(), 2);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.BLACK_COFFEE.name(), 2);
 
 		verify(container, times(2)).getCoffeeContainer();
 		verify(container, times(2)).getWaterContainer();
@@ -123,7 +123,7 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15000.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.BLACK_COFFEE.name(), 6);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.BLACK_COFFEE.name(), 6);
 
 		verify(container).getCoffeeContainer();
 		verify(container).getWaterContainer();
@@ -142,7 +142,7 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.BLACK_COFFEE.name(), 6);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.BLACK_COFFEE.name(), 6);
 
 		verify(container).getCoffeeContainer();
 		verify(container).getWaterContainer();
@@ -162,7 +162,7 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15000.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.TEA.name(), 6);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.TEA.name(), 6);
 
 		verify(container).getTeaContainer();
 		verify(container).getMilkContainer();
@@ -184,7 +184,7 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15000.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.COFFEE.name(), 6);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.COFFEE.name(), 6);
 
 		verify(container).getCoffeeContainer();
 		verify(container).getMilkContainer();
@@ -206,7 +206,7 @@ public class VendingMachineOperationImplTest {
 
 		when(container.getWaterContainer()).thenReturn(15000.0);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.TEA.name(), 6);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.TEA.name(), 6);
 
 		verify(container).getTeaContainer();
 		verify(container).getMilkContainer();
@@ -296,8 +296,8 @@ public class VendingMachineOperationImplTest {
 		drinkTypeAndQuantity.put("COFFEE", 6);
 		drinkTypeAndQuantity.put("COFFEE", 16);
 
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.COFFEE.name(), 6);
-		VendingMachineOperationImpl.prepareDrink(container, Drinks.DrinksType.BLACK_COFFEE.name(), 16);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.COFFEE.name(), 6);
+		VendingMachineOperationImpl.prepareDrink(container, DrinksType.BLACK_COFFEE.name(), 16);
 
 		VendingMachineOperationImpl.checkTotalTeaCoffeeSaleAndWasteMaterialReport(drinkTypeAndQuantity);
 
